@@ -1,0 +1,9 @@
+
+        formulas(assumptions).
+            Impostor(Bob).
+            Crewmate(Alice).
+            all x (Crewmate(x) -> -Impostor(x)).
+            Alice != Bob.
+            all x (Impostor(x) -> Bad(x)).
+        end_of_list.
+        

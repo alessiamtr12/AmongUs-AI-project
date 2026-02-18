@@ -1,0 +1,24 @@
+formulas (assumptions).
+    all x (crewmate(x) <-> -impostor(x)).
+    Cristina != Andrei & Cristina != Alessia & Cristina != Stefan & Andrei != Alessia & Andrei != Stefan & Alessia != Stefan.
+    Electrical != Navigation & Electrical != Shields & Electrical != Security & Navigation != Shields & Navigation != Security & Shields != Security.
+    impostor(Cristina) | impostor(Andrei) | impostor(Alessia) | impostor(Stefan).
+    all x all r1 all r2 (room(x, r1) & room(x, r2) -> r1 = r2).
+    impostor(Cristina) -> -impostor(Andrei) & -impostor(Alessia) & -impostor(Stefan).
+    impostor(Andrei) -> -impostor(Cristina) & -impostor(Alessia) & -impostor(Stefan).
+    impostor(Alessia) -> -impostor(Cristina) & -impostor(Andrei) & -impostor(Stefan).
+    impostor(Stefan) -> -impostor(Cristina) & -impostor(Andrei) & -impostor(Alessia).
+
+    (crewmate(Cristina) -> (room(Cristina, Navigation) & room(Andrei, Security))).
+    (impostor(Cristina) -> -(room(Cristina, Navigation) & room(Andrei, Security))).
+
+    (crewmate(Andrei) -> (room(Andrei, Shields) & room(Cristina, Electrical))).
+    (impostor(Andrei) -> -(room(Andrei, Shields) & room(Cristina, Electrical))).
+
+    (crewmate(Alessia) -> (room(Alessia, Navigation) & room(Cristina, Navigation))).
+    (impostor(Alessia) -> -(room(Alessia, Navigation) & room(Cristina, Navigation))).
+
+    (crewmate(Stefan) -> (room(Stefan, Security) & room(Andrei, Security))).
+    (impostor(Stefan) -> -(room(Stefan, Security) & room(Andrei, Security))).
+
+end_of_list.
